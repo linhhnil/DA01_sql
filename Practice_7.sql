@@ -56,5 +56,11 @@ EX5
 
 EX6
 EX7
-EX8
+select person_name
+from (SELECT person_name,turn,
+sum(weight) over (order by turn) AS wei FROM queue) a
+where wei <= 1000
+order by turn desc
+limit 1
 
+EX8
